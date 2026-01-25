@@ -2,142 +2,490 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Legal Tech Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shimaila Jehan Been - Legal Tech Portfolio</title>
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f3f4f6;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #111827;
+            overflow-x: hidden;
         }
 
-        header {
-            background: #0f172a;
-            color: white;
-            padding: 70px 20px;
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 40px 20px;
+            overflow: hidden;
+        }
+
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.1);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .circle:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .circle:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 3s;
+        }
+
+        .circle:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 50%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
-        }
-
-        header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        section {
             max-width: 900px;
-            margin: 60px auto;
-            padding: 0 20px;
         }
 
-        h2 {
-            font-size: 30px;
-            margin-bottom: 10px;
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 30px;
+            color: #93c5fd;
+            font-size: 14px;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .subtitle {
-            color: #4b5563;
+            font-size: 22px;
+            color: #cbd5e1;
             margin-bottom: 40px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: #94a3b8;
+        }
+
+        .projects-section {
+            background: #f8fafc;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .project-grid {
+            display: grid;
+            gap: 40px;
         }
 
         .project-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
         }
 
-        .project-image {
-            background: linear-gradient(135deg, #1e3a8a, #2563eb);
-            color: white;
-            padding: 60px 30px;
-            font-size: 26px;
-            font-weight: bold;
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
         }
 
-        .project-content {
-            padding: 30px;
+        .project-visual {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
         }
 
-        .project-content p {
-            line-height: 1.7;
-            color: #374151;
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: gridMove 20s linear infinite;
         }
 
-        .button {
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+
+        .project-icon {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-icon svg {
+            width: 120px;
+            height: 120px;
+            stroke: white;
+            stroke-width: 1.5;
+            fill: none;
+        }
+
+        .project-details {
+            padding: 50px;
+        }
+
+        .project-tag {
             display: inline-block;
-            margin-top: 25px;
-            padding: 12px 22px;
-            background: #2563eb;
+            padding: 6px 16px;
+            background: #eff6ff;
+            color: #2563eb;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .project-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+
+        .project-description {
+            font-size: 16px;
+            color: #64748b;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .project-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .project-features li {
+            padding: 8px 0;
+            color: #475569;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-features li::before {
+            content: '✓';
+            color: #3b82f6;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 14px 30px;
+            background: #0f172a;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
-        .button:hover {
-            background: #1d4ed8;
+        .project-link:hover {
+            background: #1e293b;
+            transform: translateX(5px);
+        }
+
+        .project-link svg {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
         }
 
         footer {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 60px 20px;
             text-align: center;
-            padding: 40px 20px;
-            color: #6b7280;
         }
 
-        footer a {
-            color: #2563eb;
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: #3b82f6;
+        }
+
+        .footer-links svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 40px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-visual {
+                min-height: 300px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Shimaila Jehan Been</h1>
-    <p>Legal Researcher | Exploring Legal Tech & Contract Management</p>
-</header>
+<section class="hero">
+    <div class="animated-bg">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+    </div>
+    
+    <div class="hero-content">
+        <div class="badge">Legal Innovation & Technology</div>
+        <h1>Shimaila Jehan Been</h1>
+        <p class="subtitle">
+            Legal Researcher specializing in Legal Tech & Contract Management.<br>
+            Bridging law and technology to create smarter legal solutions.
+        </p>
+        <a href="#projects" class="cta-button">Explore My Work</a>
+    </div>
+    
+    <div class="scroll-indicator">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+</section>
 
-<section>
-    <h2>Projects</h2>
-    <p class="subtitle">
-        A focused legal-tech project demonstrating how technology can improve
-        contract drafting and management.
-    </p>
-
-    <div class="project-card">
-        <div class="project-image">
-            Legal Tech – Contract Drafting
+<section id="projects" class="projects-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-description">
+                Innovative legal-tech solutions that demonstrate the power of combining 
+                legal expertise with modern technology.
+            </p>
         </div>
 
-        <div class="project-content">
-            <p>
-                This project explores how contracts can be drafted, organised,
-                and tracked using GitHub instead of traditional static documents.
-            </p>
-
-            <p>
-                It demonstrates clause-level documentation, version control,
-                and structured contract management in a legal-tech context.
-            </p>
-
-            <a class="button" href="legal-tech-contract-drafting.html">
-                View Project →
-            </a>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-visual">
+                    <div class="project-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="14 2 14 8 20 8" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="13" x2="8" y2="13" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="16" y1="17" x2="8" y2="17" stroke-linecap="round" stroke-linejoin="round"/>
+                            <polyline points="10 9 9 9 8 9" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <span class="project-tag">Legal Tech Innovation</span>
+                    <h3 class="project-title">Contract Drafting System</h3>
+                    <p class="project-description">
+                        A revolutionary approach to contract management using GitHub's version control 
+                        capabilities. This project transforms traditional contract drafting into a 
+                        transparent, trackable, and collaborative process.
+                    </p>
+                    
+                    <ul class="project-features">
+                        <li>Clause-level documentation and tracking</li>
+                        <li>Version control for all contract revisions</li>
+                        <li>Structured legal document management</li>
+                        <li>Collaborative editing capabilities</li>
+                    </ul>
+                    
+                    <a href="legal-tech-contract-drafting.html" class="project-link">
+                        View Project
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
 <footer>
-    <p>
-        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a> ·
-        <a href="https://github.com/shimailajehanbeen" target="_blank">GitHub</a>
-    </p>
+    <div class="footer-links">
+        <a href="https://www.linkedin.com" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+            </svg>
+            LinkedIn
+        </a>
+        <a href="https://github.com/shimailajehanbeen" target="_blank">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+            </svg>
+            GitHub
+        </a>
+    </div>
+    <p>© 2026 Shimaila Jehan Been. All rights reserved.</p>
 </footer>
 
 </body>
