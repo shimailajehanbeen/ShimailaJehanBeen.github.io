@@ -1,493 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shimaila Jehan Been - Legal Tech Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shimaila Jehan Been · Legal Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#1c1c28;
+  --ivory:#f8f6f1;
+  --teal:#2d7d7d;
+  --teal-lt:#3d9e9e;
+  --teal-pale:#e8f4f4;
+  --mid:#6b7280;
+  --rule:#e2ddd6;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.6;}
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: #111827;
-            overflow-x: hidden;
-        }
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 5%;
+  background:rgba(248,246,241,0.95);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.nav-wordmark{
+  font-family:'DM Serif Display',serif;font-size:1.1rem;
+  color:var(--ink);text-decoration:none;letter-spacing:0.01em;
+}
+.nav-wordmark span{color:var(--teal);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{
+  font-size:0.78rem;font-weight:500;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--mid);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);}
+.nav-cta{
+  font-size:0.78rem;font-weight:600;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--white);background:var(--teal);
+  text-decoration:none;padding:0.55rem 1.4rem;transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--ink);}
 
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            padding: 40px 20px;
-            overflow: hidden;
-        }
+/* HERO */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-rows:1fr auto;
+  padding-top:72px;
+  position:relative;overflow:hidden;
+}
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:calc(100vh - 72px);
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 5%;
+}
+.eyebrow{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:0.8rem;
+}
+.eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--teal);}
+h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2.8rem,4.5vw,4.8rem);line-height:1.08;
+  color:var(--ink);margin-bottom:1.8rem;font-weight:400;
+}
+h1 em{font-style:italic;color:var(--teal);}
+.hero-desc{
+  font-size:1.05rem;color:var(--mid);max-width:400px;
+  line-height:1.8;margin-bottom:2.5rem;font-weight:300;
+}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-solid{
+  background:var(--ink);color:var(--white);
+  padding:0.8rem 2rem;font-size:0.82rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s;
+}
+.btn-solid:hover{background:var(--teal);}
+.btn-ghost{
+  background:transparent;color:var(--ink);
+  padding:0.8rem 2rem;font-size:0.82rem;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+  text-decoration:none;border:1.5px solid var(--ink);
+  transition:all 0.2s;
+}
+.btn-ghost:hover{border-color:var(--teal);color:var(--teal);}
 
-        .animated-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
+/* VENN DIAGRAM — signature element */
+.hero-right{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--ink);position:relative;overflow:hidden;padding:3rem;
+}
+.venn-wrap{position:relative;width:340px;height:340px;}
+.venn-circle{
+  position:absolute;width:200px;height:200px;border-radius:50%;
+  opacity:0.18;transition:opacity 0.3s;
+}
+.venn-circle:hover{opacity:0.28;}
+.vc-law{background:var(--teal);top:0;left:50%;transform:translateX(-50%);}
+.vc-ai{background:#7c6fcd;bottom:0;left:0;}
+.vc-ops{background:#d97706;bottom:0;right:0;}
+.venn-labels{position:absolute;inset:0;}
+.vl{
+  position:absolute;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;text-align:center;
+}
+.vl-law{color:var(--teal-lt);top:1.2rem;left:50%;transform:translateX(-50%);}
+.vl-ai{color:#a89de8;bottom:1.5rem;left:0.5rem;}
+.vl-ops{color:#f59e0b;bottom:1.5rem;right:0.5rem;}
+.venn-center{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-38%);
+  text-align:center;
+}
+.venn-center-title{
+  font-family:'DM Serif Display',serif;font-style:italic;
+  font-size:1rem;color:var(--white);line-height:1.3;
+}
+.venn-center-sub{font-size:0.65rem;color:rgba(255,255,255,0.45);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;}
+.venn-bg-text{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:'DM Serif Display',serif;font-size:9rem;
+  color:rgba(255,255,255,0.02);font-style:italic;user-select:none;
+  white-space:nowrap;overflow:hidden;
+}
 
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(59, 130, 246, 0.1);
-            animation: float 20s infinite ease-in-out;
-        }
+/* METRICS STRIP */
+.metrics-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--rule);
+}
+.metric-cell{
+  padding:2rem 2.5rem;border-right:1px solid var(--rule);
+  display:flex;flex-direction:column;gap:0.3rem;
+}
+.metric-cell:last-child{border-right:none;}
+.metric-n{
+  font-family:'DM Serif Display',serif;font-size:2.4rem;
+  color:var(--teal);line-height:1;
+}
+.metric-l{font-size:0.72rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);}
 
-        .circle:nth-child(1) {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 10%;
-            animation-delay: 0s;
-        }
+/* ABOUT */
+#about{
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;
+  padding:7rem 5%;border-top:1px solid var(--rule);
+}
+.about-left h2{
+  font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,3vw,2.8rem);
+  font-weight:400;line-height:1.2;margin-bottom:1.5rem;
+}
+.about-left h2 em{font-style:italic;color:var(--teal);}
+.about-left p{font-size:0.95rem;color:var(--mid);line-height:1.85;margin-bottom:1rem;}
+.about-right{display:flex;flex-direction:column;gap:1.5rem;}
+.pillar{
+  padding:1.8rem;border:1px solid var(--rule);
+  transition:border-color 0.2s,box-shadow 0.2s;
+  cursor:default;
+}
+.pillar:hover{border-color:var(--teal);box-shadow:0 4px 24px rgba(45,125,125,0.07);}
+.pillar-tag{
+  font-size:0.68rem;font-weight:600;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;
+}
+.pillar h3{
+  font-family:'DM Serif Display',serif;font-size:1.15rem;
+  font-weight:400;margin-bottom:0.5rem;
+}
+.pillar p{font-size:0.83rem;color:var(--mid);line-height:1.7;}
 
-        .circle:nth-child(2) {
-            width: 200px;
-            height: 200px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 3s;
-        }
+/* FOOTER NAV */
+.page-footer{
+  background:var(--ink);padding:2rem 5%;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.pf-copy{font-size:0.75rem;color:rgba(255,255,255,0.3);letter-spacing:0.08em;}
+.pf-links{display:flex;gap:2rem;}
+.pf-links a{font-size:0.75rem;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:0.08em;transition:color 0.2s;}
+.pf-links a:hover{color:var(--teal-lt);}
 
-        .circle:nth-child(3) {
-            width: 150px;
-            height: 150px;
-            bottom: 20%;
-            left: 50%;
-            animation-delay: 6s;
-        }
+/* FADE IN */
+.fade{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade.in{opacity:1;transform:translateY(0);}
 
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            33% { transform: translate(30px, -30px) scale(1.1); }
-            66% { transform: translate(-20px, 20px) scale(0.9); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            max-width: 900px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(59, 130, 246, 0.2);
-            border: 1px solid rgba(59, 130, 246, 0.4);
-            border-radius: 30px;
-            color: #93c5fd;
-            font-size: 14px;
-            margin-bottom: 30px;
-            animation: fadeInDown 1s ease-out;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        h1 {
-            font-size: 64px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .subtitle {
-            font-size: 22px;
-            color: #cbd5e1;
-            margin-bottom: 40px;
-            line-height: 1.6;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 16px 40px;
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
-        }
-
-        .scroll-indicator svg {
-            width: 30px;
-            height: 30px;
-            stroke: #94a3b8;
-        }
-
-        .projects-section {
-            background: #f8fafc;
-            padding: 100px 20px;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title {
-            font-size: 42px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 15px;
-        }
-
-        .section-description {
-            font-size: 18px;
-            color: #64748b;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .project-grid {
-            display: grid;
-            gap: 40px;
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
-        }
-
-        .project-visual {
-            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
-            padding: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 400px;
-        }
-
-        .project-visual::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 30px 30px;
-            animation: gridMove 20s linear infinite;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(30px, 30px); }
-        }
-
-        .project-icon {
-            position: relative;
-            z-index: 1;
-        }
-
-        .project-icon svg {
-            width: 120px;
-            height: 120px;
-            stroke: white;
-            stroke-width: 1.5;
-            fill: none;
-        }
-
-        .project-details {
-            padding: 50px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            padding: 6px 16px;
-            background: #eff6ff;
-            color: #2563eb;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .project-title {
-            font-size: 32px;
-            font-weight: 700;
-            color: #0f172a;
-            margin-bottom: 20px;
-        }
-
-        .project-description {
-            font-size: 16px;
-            color: #64748b;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        .project-features {
-            list-style: none;
-            margin-bottom: 30px;
-        }
-
-        .project-features li {
-            padding: 8px 0;
-            color: #475569;
-            display: flex;
-            align-items: center;
-        }
-
-        .project-features li::before {
-            content: '✓';
-            color: #3b82f6;
-            font-weight: bold;
-            margin-right: 12px;
-            font-size: 18px;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 14px 30px;
-            background: #0f172a;
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: #1e293b;
-            transform: translateX(5px);
-        }
-
-        .project-link svg {
-            margin-left: 10px;
-            width: 20px;
-            height: 20px;
-        }
-
-        footer {
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-links a:hover {
-            color: #3b82f6;
-        }
-
-        .footer-links svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 40px;
-            }
-
-            .subtitle {
-                font-size: 18px;
-            }
-
-            .project-card {
-                grid-template-columns: 1fr;
-            }
-
-            .project-visual {
-                min-height: 300px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-        }
-    </style>
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-right{min-height:340px;}
+  .metrics-strip{grid-template-columns:1fr 1fr;}
+  .metric-cell:nth-child(2){border-right:none;}
+  .metric-cell:nth-child(3){border-top:1px solid var(--rule);border-right:1px solid var(--rule);}
+  .metric-cell:nth-child(4){border-top:1px solid var(--rule);}
+  #about{grid-template-columns:1fr;gap:3rem;padding:4rem 5%;}
+  .hero-left{padding:3rem 5%;}
+  nav{padding:1rem 5%;}
+  .nav-links{display:none;}
+}
+</style>
 </head>
 <body>
 
-<section class="hero">
-    <div class="animated-bg">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
+<nav>
+  <a href="index.html" class="nav-wordmark">Shimaila <span>Jehan Been</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="work.html">Expertise & Work</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-grid">
+    <div class="hero-left">
+      <p class="eyebrow fade">Legal Specialist · AI Trainer · Contract Expert</p>
+      <h1 class="fade">Where <em>Law</em><br/>meets<br/>Technology.</h1>
+      <p class="hero-desc fade">I review, draft, and negotiate contracts — and train AI systems to do it better. Four years across courts, corporations, and cutting-edge legal tech.</p>
+      <div class="hero-actions fade">
+        <a href="work.html" class="btn-solid">View My Work</a>
+        <a href="contact.html" class="btn-ghost">Get in Touch</a>
+      </div>
     </div>
-    
-    <div class="hero-content">
-        <div class="badge">Legal Innovation & Technology</div>
-        <h1>Shimaila Jehan Been</h1>
-        <p class="subtitle">
-            Legal Researcher specializing in Legal Tech & Contract Management.<br>
-            Bridging law and technology to create smarter legal solutions.
-        </p>
-        <a href="#projects" class="cta-button">Explore My Work</a>
+    <div class="hero-right">
+      <div class="venn-bg-text">§</div>
+      <div class="venn-wrap">
+        <div class="venn-circle vc-law"></div>
+        <div class="venn-circle vc-ai"></div>
+        <div class="venn-circle vc-ops"></div>
+        <div class="venn-labels">
+          <span class="vl vl-law">Contract Law</span>
+          <span class="vl vl-ai">AI Training</span>
+          <span class="vl vl-ops">Legal Ops</span>
+        </div>
+        <div class="venn-center">
+          <div class="venn-center-title">Legal<br/>Intelligence</div>
+          <div class="venn-center-sub">My sweet spot</div>
+        </div>
+      </div>
     </div>
-    
-    <div class="scroll-indicator">
-        <svg viewBox="0 0 24 24">
-            <path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  </div>
+
+  <div class="metrics-strip">
+    <div class="metric-cell fade">
+      <span class="metric-n">4+</span>
+      <span class="metric-l">Years in Legal Practice</span>
     </div>
+    <div class="metric-cell fade">
+      <span class="metric-n">99%</span>
+      <span class="metric-l">Document Accuracy</span>
+    </div>
+    <div class="metric-cell fade">
+      <span class="metric-n">200+</span>
+      <span class="metric-l">AI Tasks Reviewed</span>
+    </div>
+    <div class="metric-cell fade">
+      <span class="metric-n">25%</span>
+      <span class="metric-l">AI Contract Accuracy Gain</span>
+    </div>
+  </div>
 </section>
 
-<section id="projects" class="projects-section">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-description">
-                Innovative legal-tech solutions that demonstrate the power of combining 
-                legal expertise with modern technology.
-            </p>
-        </div>
-
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-visual">
-                    <div class="project-icon">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="14 2 14 8 20 8" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="16" y1="13" x2="8" y2="13" stroke-linecap="round" stroke-linejoin="round"/>
-                            <line x1="16" y1="17" x2="8" y2="17" stroke-linecap="round" stroke-linejoin="round"/>
-                            <polyline points="10 9 9 9 8 9" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                </div>
-                
-                <div class="project-details">
-                    <span class="project-tag">Legal Tech Innovation</span>
-                    <h3 class="project-title">Contract Drafting System</h3>
-                    <p class="project-description">
-                        A revolutionary approach to contract management using GitHub's version control 
-                        capabilities. This project transforms traditional contract drafting into a 
-                        transparent, trackable, and collaborative process.
-                    </p>
-                    
-                    <ul class="project-features">
-                        <li>Clause-level documentation and tracking</li>
-                        <li>Version control for all contract revisions</li>
-                        <li>Structured legal document management</li>
-                        <li>Collaborative editing capabilities</li>
-                    </ul>
-                    
-                    <a href="legal-tech-contract-drafting.html" class="project-link">
-                        View Project
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
+<section id="about">
+  <div class="about-left fade">
+    <h2>A lawyer who<br/><em>speaks fluent tech.</em></h2>
+    <p>Most legal professionals treat technology as a tool. I treat it as a domain. I've spent four years across high courts, US remote firms, and AI development teams — building the rare skillset that bridges rigorous legal thinking with the demands of modern, technology-driven legal work.</p>
+    <p>At Edward Law Group, I manage contracts and data audits for personal injury matters. At Mindrift, I train the next generation of AI legal systems. The two aren't separate careers — they're one integrated practice.</p>
+    <a href="work.html" class="btn-ghost" style="display:inline-block;margin-top:1rem;">Explore My Expertise →</a>
+  </div>
+  <div class="about-right">
+    <div class="pillar fade">
+      <div class="pillar-tag">Practice Area 01</div>
+      <h3>Contract Review & Negotiation</h3>
+      <p>From personal injury intake agreements to corporate commercial contracts — I analyze, redline, and negotiate with 98% risk-flagging accuracy across complex multi-party matters.</p>
     </div>
+    <div class="pillar fade">
+      <div class="pillar-tag">Practice Area 02</div>
+      <h3>AI Legal Training</h3>
+      <p>I provide real-world legal input that makes AI systems smarter. My feedback directly improved contract analysis accuracy by 25% across Mindrift's assigned datasets.</p>
+    </div>
+    <div class="pillar fade">
+      <div class="pillar-tag">Practice Area 03</div>
+      <h3>Legal Data & Compliance Auditing</h3>
+      <p>Client data audits, regulatory compliance reviews, and structured documentation systems — built for firms that can't afford errors in their records.</p>
+    </div>
+  </div>
 </section>
 
-<footer>
-    <div class="footer-links">
-        <a href="https://www.linkedin.com" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                <rect x="2" y="9" width="4" height="12"/>
-                <circle cx="4" cy="4" r="2"/>
-            </svg>
-            LinkedIn
-        </a>
-        <a href="https://github.com/shimailajehanbeen" target="_blank">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-            </svg>
-            GitHub
-        </a>
-    </div>
-    <p>© 2026 Shimaila Jehan Been. All rights reserved.</p>
+<footer class="page-footer">
+  <span class="pf-copy">© 2026 Shimaila Jehan Been</span>
+  <div class="pf-links">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://linkedin.com/in/shimaila-j-67580a347" target="_blank">LinkedIn</a>
+    <a href="https://github.com/shimailajehanbeen" target="_blank">GitHub</a>
+  </div>
 </footer>
 
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('in');}),{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
-

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Expertise & Work · Shimaila Jehan Been</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --ink:#1c1c28;--ivory:#f8f6f1;--teal:#2d7d7d;--teal-lt:#3d9e9e;
+  --teal-pale:#e8f4f4;--mid:#6b7280;--rule:#e2ddd6;--white:#ffffff;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--ivory);color:var(--ink);line-height:1.6;}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 5%;background:rgba(248,246,241,0.95);
+  backdrop-filter:blur(10px);border-bottom:1px solid var(--rule);
+}
+.nav-wordmark{font-family:'DM Serif Display',serif;font-size:1.1rem;color:var(--ink);text-decoration:none;}
+.nav-wordmark span{color:var(--teal);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--teal);}
+.nav-cta{font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--white);background:var(--teal);text-decoration:none;padding:0.55rem 1.4rem;transition:background 0.2s;}
+.nav-cta:hover{background:var(--ink);}
+
+/* PAGE HERO */
+.page-hero{
+  padding:9rem 5% 5rem;
+  border-bottom:1px solid var(--rule);
+}
+.ph-label{font-size:0.72rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;}
+.ph-label::before{content:'';display:block;width:32px;height:1px;background:var(--teal);}
+.page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,4vw,3.8rem);font-weight:400;line-height:1.1;margin-bottom:1.2rem;}
+.page-hero h1 em{font-style:italic;color:var(--teal);}
+.page-hero p{font-size:1rem;color:var(--mid);max-width:520px;line-height:1.8;font-weight:300;}
+
+/* SKILLS MATRIX */
+#skills{padding:5rem 5%;border-bottom:1px solid var(--rule);}
+.section-head{margin-bottom:3rem;}
+.sh-label{font-size:0.68rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:0.6rem;}
+.sh-title{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:400;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--rule);}
+.skill-block{background:var(--ivory);padding:2.2rem;}
+.skill-block:hover{background:var(--white);}
+.sb-icon{font-size:1.4rem;margin-bottom:0.8rem;}
+.sb-title{font-family:'DM Serif Display',serif;font-size:1.1rem;font-weight:400;margin-bottom:0.5rem;}
+.sb-desc{font-size:0.82rem;color:var(--mid);line-height:1.75;margin-bottom:1rem;}
+.sb-tags{display:flex;flex-wrap:wrap;gap:0.4rem;}
+.tag{font-size:0.68rem;font-weight:500;letter-spacing:0.07em;padding:0.25rem 0.7rem;background:var(--teal-pale);color:var(--teal);}
+
+/* FEATURED PROJECT */
+#project{padding:5rem 5%;background:var(--ink);}
+#project .sh-label{color:rgba(61,158,158,0.8);}
+#project .sh-title{color:var(--white);}
+.project-card{
+  margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid rgba(255,255,255,0.08);
+}
+.pc-left{
+  padding:3rem;background:rgba(255,255,255,0.03);
+  border-right:1px solid rgba(255,255,255,0.08);
+}
+.project-type{font-size:0.68rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal-lt);margin-bottom:1rem;}
+.pc-left h3{font-family:'DM Serif Display',serif;font-size:1.8rem;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:1rem;}
+.pc-left p{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.8;margin-bottom:1.5rem;}
+.pc-link{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--teal-lt);text-decoration:none;border-bottom:1px solid rgba(61,158,158,0.3);
+  padding-bottom:2px;transition:border-color 0.2s;
+}
+.pc-link:hover{border-color:var(--teal-lt);}
+.pc-right{padding:3rem;}
+.pc-right h4{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.2rem;}
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:0.8rem;}
+.feature-list li{
+  font-size:0.85rem;color:rgba(255,255,255,0.65);
+  padding-left:1.2rem;position:relative;line-height:1.6;
+}
+.feature-list li::before{content:'→';position:absolute;left:0;color:var(--teal-lt);}
+.why-it-matters{
+  margin-top:2rem;padding:1.5rem;
+  background:rgba(45,125,125,0.12);border-left:2px solid var(--teal);
+}
+.why-it-matters p{font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.75;}
+.why-it-matters strong{color:var(--teal-lt);}
+
+/* EXPERIENCE */
+#experience{padding:5rem 5%;border-bottom:1px solid var(--rule);}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+.exp-card{
+  padding:2rem;border:1px solid var(--rule);
+  transition:border-color 0.2s,box-shadow 0.2s;
+}
+.exp-card:hover{border-color:var(--teal);box-shadow:0 2px 20px rgba(45,125,125,0.06);}
+.ec-period{font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.4rem;}
+.ec-role{font-family:'DM Serif Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:0.2rem;}
+.ec-org{font-size:0.8rem;color:var(--mid);margin-bottom:1rem;}
+.ec-points{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.ec-points li{font-size:0.82rem;color:var(--mid);padding-left:1rem;position:relative;line-height:1.6;}
+.ec-points li::before{content:'–';position:absolute;left:0;color:var(--teal);}
+.ec-highlight{
+  display:inline-block;margin-top:0.8rem;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.08em;
+  color:var(--teal);background:var(--teal-pale);
+  padding:0.3rem 0.7rem;
+}
+
+/* TOOLS */
+#tools{padding:5rem 5%;}
+.tools-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:2.5rem;}
+.tool-group h4{font-size:0.72rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--rule);}
+.tool-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+.tool-list li{font-size:0.85rem;color:var(--mid);padding-left:0.8rem;position:relative;}
+.tool-list li::before{content:'·';position:absolute;left:0;color:var(--teal);}
+
+/* FOOTER */
+.page-footer{background:var(--ink);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;}
+.pf-copy{font-size:0.75rem;color:rgba(255,255,255,0.3);letter-spacing:0.08em;}
+.pf-links{display:flex;gap:2rem;}
+.pf-links a{font-size:0.75rem;color:rgba(255,255,255,0.5);text-decoration:none;letter-spacing:0.08em;transition:color 0.2s;}
+.pf-links a:hover{color:var(--teal-lt);}
+
+.fade{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade.in{opacity:1;transform:translateY(0);}
+
+@media(max-width:900px){
+  nav{padding:1rem 5%;}.nav-links{display:none;}
+  .project-card{grid-template-columns:1fr;}
+  .pc-left{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .exp-grid{grid-template-columns:1fr;}
+  .tools-cols{grid-template-columns:1fr;gap:2rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-wordmark">Shimaila <span>Jehan Been</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="work.html" class="active">Expertise & Work</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="contact.html" class="nav-cta">Let's Talk</a>
+</nav>
+
+<div class="page-hero fade">
+  <p class="ph-label">Expertise & Work</p>
+  <h1>Skills built in<br/><em>courtrooms, contracts,</em><br/>and code.</h1>
+  <p>A practical breakdown of what I do, how I do it, and the work that proves it.</p>
+</div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-head fade">
+    <p class="sh-label">Core Competencies</p>
+    <h2 class="sh-title">What I bring to every engagement</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-block fade">
+      <div class="sb-icon">📄</div>
+      <h3 class="sb-title">Contract Review & Drafting</h3>
+      <p class="sb-desc">End-to-end contract work — from initial review and risk identification to redlining, negotiation, and final execution. Specialized in personal injury, commercial, and employment agreements.</p>
+      <div class="sb-tags">
+        <span class="tag">Risk Analysis</span>
+        <span class="tag">Indemnity Clauses</span>
+        <span class="tag">IP Provisions</span>
+        <span class="tag">Data Protection</span>
+        <span class="tag">Redlining</span>
+      </div>
+    </div>
+    <div class="skill-block fade">
+      <div class="sb-icon">🤖</div>
+      <h3 class="sb-title">AI Legal Training</h3>
+      <p class="sb-desc">I evaluate AI-generated legal outputs for correctness, regulatory alignment, and risk — then provide structured feedback that directly shapes model performance. This is legal expertise applied to machine learning.</p>
+      <div class="sb-tags">
+        <span class="tag">Output Evaluation</span>
+        <span class="tag">Legal Reasoning QA</span>
+        <span class="tag">Dataset Annotation</span>
+        <span class="tag">Compliance Review</span>
+      </div>
+    </div>
+    <div class="skill-block fade">
+      <div class="sb-icon">🔍</div>
+      <h3 class="sb-title">Legal Data Auditing</h3>
+      <p class="sb-desc">Systematic audit of client records, compliance documentation, and case data for personal injury firms — ensuring nothing falls through the cracks in high-volume, deadline-sensitive environments.</p>
+      <div class="sb-tags">
+        <span class="tag">Client Data Audits</span>
+        <span class="tag">HIPAA Compliance</span>
+        <span class="tag">Record Integrity</span>
+        <span class="tag">Version Control</span>
+      </div>
+    </div>
+    <div class="skill-block fade">
+      <div class="sb-icon">⚖️</div>
+      <h3 class="sb-title">Regulatory Compliance</h3>
+      <p class="sb-desc">98% flagging accuracy across client agreements for liability exposure, indemnity risk, and regulatory non-compliance. Built for firms operating across multiple jurisdictions.</p>
+      <div class="sb-tags">
+        <span class="tag">Liability Exposure</span>
+        <span class="tag">Data Privacy</span>
+        <span class="tag">Multi-jurisdiction</span>
+        <span class="tag">Filing Deadlines</span>
+      </div>
+    </div>
+    <div class="skill-block fade">
+      <div class="sb-icon">📊</div>
+      <h3 class="sb-title">Legal Research & Analysis</h3>
+      <p class="sb-desc">Deep-dive legal research across contract law, dispute resolution, and IP — translated into clear, actionable recommendations that supported resolution in 85% of assigned matters.</p>
+      <div class="sb-tags">
+        <span class="tag">Case Analysis</span>
+        <span class="tag">Legal Memos</span>
+        <span class="tag">Dispute Research</span>
+        <span class="tag">IP Law</span>
+      </div>
+    </div>
+    <div class="skill-block fade">
+      <div class="sb-icon">🗂️</div>
+      <h3 class="sb-title">Document & Matter Management</h3>
+      <p class="sb-desc">Structured systems for managing 100+ active matters simultaneously — with consistent 99% accuracy, full version control, and stakeholder-facing status reporting that actually gets read.</p>
+      <div class="sb-tags">
+        <span class="tag">CLM Platforms</span>
+        <span class="tag">Matter Tracking</span>
+        <span class="tag">Workflow Design</span>
+        <span class="tag">Status Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT -->
+<section id="project">
+  <div class="section-head fade">
+    <p class="sh-label">Featured Project</p>
+    <h2 class="sh-title">Work that demonstrates the approach</h2>
+  </div>
+  <div class="project-card fade">
+    <div class="pc-left">
+      <div class="project-type">Legal Technology · Version Control · Contract Management</div>
+      <h3>Contract Drafting System via GitHub</h3>
+      <p>A working proof-of-concept that applies software engineering principles — specifically Git version control — to the problem of contract management. Every clause change is tracked, every revision is documented, and the full history of a contract is permanently auditable.</p>
+      <p>This isn't an academic exercise. It solves a real problem: most legal teams have no meaningful version history for their contracts. This system changes that.</p>
+      <a href="https://shimailajehanbeen.github.io/legal-tech-contract-drafting.html" target="_blank" class="pc-link">View Live Project ↗</a>
+    </div>
+    <div class="pc-right">
+      <h4>What this demonstrates</h4>
+      <ul class="feature-list">
+        <li>Clause-level tracking — every change is attributed and timestamped</li>
+        <li>Full revision history across the contract lifecycle</li>
+        <li>Collaborative editing with conflict resolution</li>
+        <li>Structured document management without expensive CLM software</li>
+        <li>Technical fluency applied to a genuine legal operations problem</li>
+      </ul>
+      <div class="why-it-matters">
+        <p><strong>Why it matters:</strong> The ability to think about legal problems through a technology lens — and then build something — is rare. This project is evidence of that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-head fade">
+    <p class="sh-label">Where I've Applied It</p>
+    <h2 class="sh-title">Experience</h2>
+  </div>
+  <div class="exp-grid">
+    <div class="exp-card fade">
+      <div class="ec-period">Feb 2026 – Present</div>
+      <div class="ec-role">Legal Assistant</div>
+      <div class="ec-org">Edward Law Group · Houston, TX (Remote)</div>
+      <ul class="ec-points">
+        <li>Contract review, drafting &amp; data auditing for personal injury matters</li>
+        <li>Risk and compliance flagging across client agreements</li>
+        <li>Coordinating attorneys, medical providers &amp; insurance adjusters</li>
+        <li>Maintaining documentation accuracy across 30+ active matters monthly</li>
+      </ul>
+      <span class="ec-highlight">98% flagging accuracy · 20% faster turnaround</span>
+    </div>
+    <div class="exp-card fade">
+      <div class="ec-period">Nov 2025 – Present</div>
+      <div class="ec-role">Legal Specialist – AI Trainer</div>
+      <div class="ec-org">Mindrift · Freelance (Remote)</div>
+      <ul class="ec-points">
+        <li>Real-world legal input for next-generation AI contract systems</li>
+        <li>Evaluating AI legal outputs for accuracy &amp; regulatory compliance</li>
+        <li>Structured feedback that directly shaped model improvements</li>
+        <li>95%+ quality approval rate across 200+ reviewed tasks</li>
+      </ul>
+      <span class="ec-highlight">25% improvement in AI contract analysis accuracy</span>
+    </div>
+    <div class="exp-card fade">
+      <div class="ec-period">Dec 2025 – Feb 2026</div>
+      <div class="ec-role">Legal Analyst</div>
+      <div class="ec-org">ARDEM Incorporated · Princeton, NJ (Remote)</div>
+      <ul class="ec-points">
+        <li>Commercial contract documentation for US corporate clients</li>
+        <li>Contract management systems for 100+ active files</li>
+        <li>Reduced quality control revision cycles by 18%</li>
+      </ul>
+      <span class="ec-highlight">90% accuracy · 30% stakeholder visibility gain</span>
+    </div>
+    <div class="exp-card fade">
+      <div class="ec-period">Sep 2023 – Nov 2025</div>
+      <div class="ec-role">Legal Associate</div>
+      <div class="ec-org">High Court of J&amp;K and Ladakh · Srinagar</div>
+      <ul class="ec-points">
+        <li>Drafted, reviewed &amp; negotiated contracts across 100+ matters</li>
+        <li>Identified risk areas in 40+ contracts including IP &amp; data protection</li>
+        <li>Legal research that supported 85% of assigned matter resolutions</li>
+      </ul>
+      <span class="ec-highlight">99% accuracy over 2 years</span>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+  <div class="section-head fade">
+    <p class="sh-label">Technical Proficiency</p>
+    <h2 class="sh-title">Tools & Technologies</h2>
+  </div>
+  <div class="tools-cols fade">
+    <div class="tool-group">
+      <h4>Legal Technology</h4>
+      <ul class="tool-list">
+        <li>DocuSign CLM</li>
+        <li>Contract Lifecycle Management Platforms</li>
+        <li>Document Management Systems</li>
+        <li>LexisNexis</li>
+        <li>Legal Hold Administration Tools</li>
+      </ul>
+    </div>
+    <div class="tool-group">
+      <h4>Productivity & Collaboration</h4>
+      <ul class="tool-list">
+        <li>MS Word & Excel</li>
+        <li>Adobe Acrobat</li>
+        <li>SharePoint</li>
+        <li>GitHub (Version Control)</li>
+        <li>Remote Collaboration Tools</li>
+      </ul>
+    </div>
+    <div class="tool-group">
+      <h4>Certifications</h4>
+      <ul class="tool-list">
+        <li>DocuSign CLM Administration Pro</li>
+        <li>IP Law Specialization – UPenn</li>
+        <li>AI for Lawyers – U of Michigan</li>
+        <li>HIPAA & Data Privacy</li>
+        <li>Commercial Contracts – Udemy</li>
+        <li>AI-Assisted Legal Drafting</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="page-footer">
+  <span class="pf-copy">© 2026 Shimaila Jehan Been</span>
+  <div class="pf-links">
+    <a href="index.html">Home</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Contact</a>
+    <a href="https://linkedin.com/in/shimaila-j-67580a347" target="_blank">LinkedIn</a>
+    <a href="https://github.com/shimailajehanbeen" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('in');}),{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
